@@ -1,0 +1,16 @@
+{% extends 'classView/base.html' %} 
+{% block body_block %}
+
+    <h3>{{musician.first_name}}</h3>
+    <h3>{{musician.last_name}}</h3>
+    <h3>{{musician.instrument}}</h3>
+    <h1>Albul List</h1>
+    {% for album in musician.album_list.all %}
+    <li>{{album.name}}</li>
+    {%endfor%}
+
+    <a href="{% url 'classBasedView:updateMusician' pk=musician.id %}" class="btn btn-warning">Update Musician</a>
+    <a href="{% url 'classBasedView:deleteMusician' pk=musician.id %}" class="btn btn-danger">Delete Musician</a>
+    
+
+    {% endblock %}

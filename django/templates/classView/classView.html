@@ -1,0 +1,8 @@
+{% extends 'classView/base.html' %} 
+{% block body_block %}
+<h1>Musicians</h1>
+{% for Musician in musician_list %}
+<li><a href="{% url 'classBasedView:classDetail' pk=Musician.pk %}">{{Musician.first_name}}</a></li>
+{% endfor %}   
+
+{% endblock %}

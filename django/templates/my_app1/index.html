@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% extends "my_app1/base.html" %}
+{% load my_filters %}
+
+{% block body_block %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container ">
+        <button class="btn btn-primary"> 
+            <a class=" text-light" href="{% url 'my_app1:AddMusician' %}">Add New</a>
+        </button>
+
+    <!-- <table border="1">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Instruments Name</th>
+        </tr>
+        {% for data in musicians %}
+        <tr>
+            <td>{{data.first_name}}</td>
+            <td>{{data.last_name}}</td>
+            <td>{{data.instrument}}</td>
+        </tr>
+        {% endfor %}
+    </table> -->
+
+    <h1 class=" mt-5"> List of musicians </h1>
+
+    <div class="list-group">
+        {% for data in musicians %}
+        <a href="{% url 'my_app1:AlbumList' artist_id=data.id %}" class="list-group-item">{{data.first_name}}</a>
+        {% endfor %}
+    </div>
+    
+    <!-- <h1> {{sampleText|custom_filter}} </h1> -->
+    </div>
+</body>
+</html>
+{% endblock %}

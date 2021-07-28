@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% extends "my_app1/base.html" %}
+{% load static %}
+{% block body_block %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}" />
+</head>
+  <div class="container">
+        <!-- <h1>This is the index page
+    </h1>
+    <h3>{{text1}}</h3> -->
+    <!-- <form action="" method="POST">
+        {% csrf_token %}
+        {{django_form.as_p}}
+        <input type="submit" name="submit" value="submit"/>
+    </form> -->
+    <h1>This is the Musicians Form</h1>
+    <a href="{% url 'my_app1:Home' %}">Go Back</a>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{musicianForm.as_p}}
+        <input type="submit" name="submit" value="submit"/>
+    </form>
+
+    {%if formSubmitted %}
+        <p>{{userName}}</p>
+        <p>{{userEmail}}</p>
+        <p>{{userDob}}</p>
+    {% endif %}
+    <!-- <img src="{% static "images/image.jpg" %}" /> -->
+  </div>
+</body>
+</html>
+{% endblock %}
